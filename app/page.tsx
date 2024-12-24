@@ -31,7 +31,7 @@ export default function Home() {
           <div className="flex flex-col md:items-end justify-end md:w-72 gap-4">
             <div>
               <Link
-                href="https://x.com/alipiopereira7"
+                href="https://x.com/alipiopereira7/status/1871371536772575650"
                 target="_blank"
                 className="inline-flex items-center px-2 py-1 bg-zinc-100 dark:bg-zinc-700 rounded-full text-sm font-medium opacity-70 w-auto"
               >
