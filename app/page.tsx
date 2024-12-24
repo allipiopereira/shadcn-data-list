@@ -1,27 +1,13 @@
-"use client";
-
-import { exampleHorizontal } from "@/code/example-horizontal";
-import { exampleVertical } from "@/code/example-vertical";
-import CodeBlock from "@/components/code-block";
-import { ExampleDataListHorizontal } from "@/components/example-data-list-horizontal";
-import { ExampleDataListVertical } from "@/components/example-data-list-vertical";
-import { GithubIcon } from "@/components/icons";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { parseAsStringLiteral, useQueryState } from "nuqs";
-import { Suspense } from "react";
 
-const tabAcitveOptions = ["horizontal", "vertical"] as const;
-
-type TabActiveOptions = (typeof tabAcitveOptions)[number];
+import CodeBlock from "@/components/code-block";
+import { CodeExamples } from "@/components/code-examples";
+import { GithubIcon } from "@/components/icons";
+import { TabOptions } from "@/components/tab-examples";
 
 export default function Home() {
-  const [tabActive, setTabActive] = useQueryState(
-    "tabActive",
-    parseAsStringLiteral(tabAcitveOptions).withDefault("horizontal")
-  );
-
   return (
     <main className="flex flex-col items-center justify-center w-full p-6">
       <div className="flex flex-col w-full sm:w-[600px] lg:w-[650px] gap-8 mt-20">
@@ -71,29 +57,8 @@ export default function Home() {
           </div>
         </div>
 
-        <Suspense fallback="Loading..">
-          <Tabs
-            defaultValue={tabActive}
-            className="w-full"
-            onValueChange={(v: string) => setTabActive(v as TabActiveOptions)}
-          >
-            <TabsList className="rounded-xl h-9">
-              <TabsTrigger value="horizontal" className="rounded-lg py-1">
-                Horizontal
-              </TabsTrigger>
-              <TabsTrigger value="vertical" className="rounded-lg py-1">
-                Vertical
-              </TabsTrigger>
-            </TabsList>
-            <div className="flex gap-7 p-4 bg-zinc-200/50 dark:bg-zinc-950/40 border rounded-xl mt-2">
-              <TabsContent value="horizontal">
-                <ExampleDataListHorizontal />
-              </TabsContent>
-              <TabsContent value="vertical">
-                <ExampleDataListVertical />
-              </TabsContent>
-            </div>
-          </Tabs>
+        <Suspense>
+          <TabOptions />
         </Suspense>
 
         <div>
@@ -117,11 +82,9 @@ npx shadcn add https://shadcn-datalist.vercel.app/api/r/data-list
             Now just use it.
           </h2>
 
-          <CodeBlock
-            code={
-              tabActive === "horizontal" ? exampleHorizontal : exampleVertical
-            }
-          />
+          <Suspense>
+            <CodeExamples />
+          </Suspense>
         </div>
       </div>
 
