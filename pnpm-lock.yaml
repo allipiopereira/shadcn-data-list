@@ -27,8 +27,8 @@ importers:
         specifier: 15.1.2
         version: 15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       nuqs:
-        specifier: ^2.2.3
-        version: 2.2.3(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
+        specifier: 2.3.0-beta.1
+        version: 2.3.0-beta.1(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -47,6 +47,9 @@ importers:
       remark-rehype:
         specifier: ^11.1.1
         version: 11.1.1
+      shiki:
+        specifier: ^1.24.4
+        version: 1.24.4
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
@@ -1556,17 +1559,20 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  nuqs@2.2.3:
-    resolution: {integrity: sha512-nMCcUW06KSqEXA0xp+LiRqDpIE59BVYbjZLe0HUisJAlswfihHYSsAjYTzV0lcE1thfh8uh+LqUHGdQ8qq8rfA==}
+  nuqs@2.3.0-beta.1:
+    resolution: {integrity: sha512-2EZvxU9C9kl3f2v8Dy6y+ZOIFUMJ7mHMauxW9f8sQp1NsyJgK69P36SedWZWUfrNq3A2TEsg2UUQnObTvooiLQ==}
     peerDependencies:
       '@remix-run/react': '>=2'
       next: '>=14.2.0'
       react: '>=18.2.0 || ^19.0.0-0'
-      react-router-dom: '>=6'
+      react-router: ^7
+      react-router-dom: ^6 || ^7
     peerDependenciesMeta:
       '@remix-run/react':
         optional: true
       next:
+        optional: true
+      react-router:
         optional: true
       react-router-dom:
         optional: true
@@ -3842,7 +3848,7 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  nuqs@2.2.3(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0):
+  nuqs@2.3.0-beta.1(next@15.1.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0):
     dependencies:
       mitt: 3.0.1
       react: 19.0.0
