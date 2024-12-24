@@ -41,7 +41,7 @@ export default function Home() {
 
             <div>
               <Link
-                href="https://github.com/allipiopereira/shadcn-datalist"
+                href="https://github.com/allipiopereira/shadcn-data-list"
                 target="_blank"
                 className="inline-flex items-center px-3 py-1.5 hover:bg-zinc-100 hover:dark:bg-zinc-700 rounded-full text-sm font-medium opacity-70 w-auto"
               >
@@ -51,7 +51,7 @@ export default function Home() {
                   className="mr-1"
                   color="fill-black dark:fill-white"
                 />
-                allipiopereira/shadcn-datalist
+                allipiopereira/shadcn-data-list
               </Link>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
           <CodeBlock
             code={`
 \`\`\`
-npx shadcn add https://shadcn-datalist.vercel.app/api/r/data-list
+npx shadcn add https://shadcn-data-list.vercel.app/api/r/data-list
 \`\`\`
 `}
           />
