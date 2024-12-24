@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
 import { parseAsStringLiteral, useQueryState } from "nuqs";
+import { Suspense } from "react";
 
 const tabAcitveOptions = ["horizontal", "vertical"] as const;
 
@@ -70,28 +71,30 @@ export default function Home() {
           </div>
         </div>
 
-        <Tabs
-          defaultValue={tabActive}
-          className="w-full"
-          onValueChange={(v: string) => setTabActive(v as TabActiveOptions)}
-        >
-          <TabsList className="rounded-xl h-9">
-            <TabsTrigger value="horizontal" className="rounded-lg py-1">
-              Horizontal
-            </TabsTrigger>
-            <TabsTrigger value="vertical" className="rounded-lg py-1">
-              Vertical
-            </TabsTrigger>
-          </TabsList>
-          <div className="flex gap-7 p-4 bg-zinc-200/50 dark:bg-zinc-950/40 border rounded-xl mt-2">
-            <TabsContent value="horizontal">
-              <ExampleDataListHorizontal />
-            </TabsContent>
-            <TabsContent value="vertical">
-              <ExampleDataListVertical />
-            </TabsContent>
-          </div>
-        </Tabs>
+        <Suspense fallback="Loading..">
+          <Tabs
+            defaultValue={tabActive}
+            className="w-full"
+            onValueChange={(v: string) => setTabActive(v as TabActiveOptions)}
+          >
+            <TabsList className="rounded-xl h-9">
+              <TabsTrigger value="horizontal" className="rounded-lg py-1">
+                Horizontal
+              </TabsTrigger>
+              <TabsTrigger value="vertical" className="rounded-lg py-1">
+                Vertical
+              </TabsTrigger>
+            </TabsList>
+            <div className="flex gap-7 p-4 bg-zinc-200/50 dark:bg-zinc-950/40 border rounded-xl mt-2">
+              <TabsContent value="horizontal">
+                <ExampleDataListHorizontal />
+              </TabsContent>
+              <TabsContent value="vertical">
+                <ExampleDataListVertical />
+              </TabsContent>
+            </div>
+          </Tabs>
+        </Suspense>
 
         <div>
           <h2 className="text-lg font-semibold">Step 1</h2>
